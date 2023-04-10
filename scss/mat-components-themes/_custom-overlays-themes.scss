@@ -1,0 +1,8 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin content-only-overlay($theme) {
+  .content-only-overlay {
+    background-color: red;
+  }
+}

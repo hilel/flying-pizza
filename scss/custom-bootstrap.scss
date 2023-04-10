@@ -1,0 +1,15 @@
+// Import Bootstrap functions and variables
+// @import 'bootstrap/scss/functions';
+// @import 'bootstrap/scss/variables';
+
+// Import any custom variables or overrides here
+// @import 'custom-variables';
+
+// Import Bootstrap mixins
+// @import 'bootstrap/scss/mixins';
+
+// Import only the utilities
+@import 'bootstrap/scss/bootstrap-utilities';
+
+// Import only the grid system
+@import 'bootstrap/scss/bootstrap-grid';

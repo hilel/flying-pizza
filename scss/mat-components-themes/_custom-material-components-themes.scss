@@ -1,0 +1,69 @@
+// @import "./_custom-toolbars-themes";
+// @import "./_custom-tooltips-themes";
+// @import "./_custom-tabs-themes";
+// @import "./_fullh-tabs.theme";
+// @import "../../../../egm-material/src/lib/components/toggle-btn/toggle-btn.theme";// @import "../../../../egm-mams-ui/src/app/components/ui/toggle-btn/toggle-btn.theme";
+// @import "../../lib/components/search-input/search-input.theme";
+// @import "../../../../shared-ui/src//lib/components/alarms/alarms-list/alarms-list.theme";
+// @import "../../../../shared-ui/src//lib/components/egm-leaflet/map-toolbar/map-toolbar.theme";
+// @import "./custom-form-fields.themes";
+// @import "./_custom-dialogs-themes";
+// @import "./custom-checkboxes-themes";
+// @import "./custom-selects-themes";
+// @import "./_custom-menus-themes";
+// @import "./_custom-lists-themes";
+// @import "./_custom-sidenavs-themes";
+// @import "./_custom-tables-themes";
+// @import "./custom-trees-themes";
+@import "./custom-overlays-themes";
+
+@mixin custom-material-components-themes($theme) {
+    @include content-only-overlay($theme);
+    // @include toolbar-no-bg($theme);
+    // @include toolbar-sm($theme);
+    // @include toolbar-xs($theme);
+    // @include all-tabs($theme);
+    // @include mini-tabs-theme($theme);
+    // @include scroll-tab-content-theme($theme);
+    // @include no-scroll-tab-content-theme($theme);
+    // @include fullh-tabs-theme($theme);
+    // @include tab-height-100-theme($theme);
+    // @include tab-label-width-100-theme($theme);
+    // @include vertical-tabs-theme($theme);
+    // @include toggle-btn-theme($theme);
+    // @include search-input($theme);
+    // @include alarms-list($theme);
+    // @include all-form-fields($theme);
+    // @include input-no-underline($theme);
+    // @include input-sm($theme);
+    // @include input-xs($theme);
+    // @include form-field-no-disabled-style($theme);
+    // @include form-field-no-invalid-style($theme);
+    // @include map-toolbar($theme);
+    // @include full-width-checkbox($theme);
+    // @include no-disabled-style-checkbox($theme);
+    // @include no-arrow-select($theme);
+
+    // @include all-lists($theme);
+    // @include hide-disabled-menu($theme);
+    // @include even-bg-list-theme($theme);
+    // @include compact-list-theme($theme);
+    // @include list-subheader-accent-theme($theme);
+    
+    // @include all-dialogs($theme);
+    // @include compact-dlg($theme);
+    // @include minimizable-dlg($theme);
+    // @include top-shadow-dlg($theme);
+    // @include absolute-full-dlg($theme);
+    // @include no-scroll-dlg($theme);
+
+    // @include no-scroll-sidenav-theme($theme);
+    // @include height-100-sidenav-theme($theme);
+
+    // @include all-tables($theme);
+    // @include table-compact-rows($theme);
+    // @include table-cells-align-middle($theme);
+    // @include table-border-row($theme);
+
+    // @include all-trees($theme);
+}

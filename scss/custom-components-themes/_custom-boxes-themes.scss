@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin info-box($theme) {
+  $color-config:    mat.get-color-config($theme);
+  // $background: map-get($theme, background); // get bg pallete
+  $primary-palette: map.get($color-config, 'primary');
+  $accent-palette: map-get($color-config, 'accent');
+  $primary: map-get($primary-palette, 'primary');
+  $accent: map-get($accent-palette, 'accent');
+  // $warn: map-get($theme, warn);
+
+  .info-box {
+    @include mat.elevation(2);
+    @include mat.elevation-transition();
+    @extend .py-2;
+    @extend .px-4;
+    white-space: normal;
+
+    &:hover {
+      @include mat.elevation(5);
+    }
+  }
+}

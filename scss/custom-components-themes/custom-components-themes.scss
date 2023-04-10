@@ -1,0 +1,7 @@
+@import './custom-boxes-themes';
+@import './custom-loaders-themes';
+
+@mixin custom-components-themes($theme) {
+    @include info-box($theme);
+    @include loader($theme);
+}
