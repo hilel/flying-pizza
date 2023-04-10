@@ -19,7 +19,8 @@
       "@flying-pizza/model": ["libs/model/src/index.ts"],
       "@flying-pizza/shared-services": ["libs/shared-services/src/index.ts"],
       "@flying-pizza/shared-ui": ["libs/shared-ui/src/index.ts"]
-    }
+    },
+    "types": ["@angular/localize"]
   },
   "exclude": ["node_modules", "tmp"]
 }

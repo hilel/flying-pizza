@@ -2,7 +2,20 @@
   "name": "frontend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "flying-pizza",
+  "prefix": "frontend",
+  "i18n": {
+    "sourceLocale": "en-US",
+    "locales": {
+      "en": {
+        "translation": "apps/frontend/src/locale/messages.en.xlf",
+        "baseHref": "/en/"
+      },
+      "he": {
+        "translation": "apps/frontend/src/locale/messages.he.xlf",
+        "baseHref": "/he/"
+      }
+    }
+  },
   "sourceRoot": "apps/frontend/src",
   "tags": [],
   "targets": {
@@ -19,6 +32,7 @@
           "zone.js"
         ],
         "tsConfig": "apps/frontend/tsconfig.app.json",
+        "localize": ["en", "he"],
         "assets": [
           "apps/frontend/src/favicon.ico",
           "apps/frontend/src/assets"
@@ -57,6 +71,16 @@
               "with": "apps/frontend/src/environments/environment.dev.ts"
             }
           ]
+        },
+        "en": {
+          "localize": ["en"],
+          "baseHref": "/en/",
+          "i18nMissingTranslation": "warning"
+        },
+        "he": {
+          "localize": ["he"],
+          "baseHref": "/he/",
+          "i18nMissingTranslation": "warning"
         }
       },
       "defaultConfiguration": "production"
@@ -68,7 +92,13 @@
           "browserTarget": "frontend:build:production"
         },
         "development": {
-          "browserTarget": "frontend:build:development"
+          "browserTarget": "frontend:build:development,en"
+        },
+        "en": {
+          "browserTarget": "frontend:build:development,en"
+        },
+        "he": {
+          "browserTarget": "frontend:build:development,he"
         }
       },
       "defaultConfiguration": "development"

@@ -1,8 +1,13 @@
 {
-  "name": "flying-pizza",
+  "name": "admin",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "i18n": "npm run i18n.admin && npm run i18n.frontend",
+    "i18n.admin": "nx extract-i18n admin --output-path apps/admin/src/locale && nx extract-i18n admin --output-path apps/admin/src/locale --format=json",
+    "i18n.frontend": "nx extract-i18n frontend --output-path apps/frontend/src/locale && nx extract-i18n frontend --output-path apps/frontend/src/locale --format=json",
+    "reset": "nx reset"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "15.2.5",

@@ -2,7 +2,20 @@
   "name": "admin",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "flying-pizza",
+  "prefix": "admin",
+  "i18n": {
+    "sourceLocale": "en-US",
+    "locales": {
+      "en": {
+        "translation": "apps/admin/src/locale/messages.en.xlf",
+        "baseHref": "/en/"
+      },
+      "he": {
+        "translation": "apps/admin/src/locale/messages.he.xlf",
+        "baseHref": "/he/"
+      }
+    }
+  },
   "sourceRoot": "apps/admin/src",
   "tags": [],
   "targets": {
@@ -15,6 +28,7 @@
         "main": "apps/admin/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/admin/tsconfig.app.json",
+        "localize": ["en", "he"],
         "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets"],
         "styles": ["apps/admin/src/styles.scss"],
         "scripts": []
@@ -48,6 +62,16 @@
               "with": "apps/admin/src/environments/environment.dev.ts"
             }
           ]
+        },
+        "en": {
+          "localize": ["en"],
+          "baseHref": "/en/",
+          "i18nMissingTranslation": "warning"
+        },
+        "he": {
+          "localize": ["he"],
+          "baseHref": "/he/",
+          "i18nMissingTranslation": "warning"
         }
       },
       "defaultConfiguration": "production"
@@ -59,7 +83,13 @@
           "browserTarget": "admin:build:production"
         },
         "development": {
-          "browserTarget": "admin:build:development"
+          "browserTarget": "admin:build:development,en"
+        },
+        "en": {
+          "browserTarget": "admin:build:development,en"
+        },
+        "he": {
+          "browserTarget": "admin:build:development,he"
         }
       },
       "defaultConfiguration": "development"
