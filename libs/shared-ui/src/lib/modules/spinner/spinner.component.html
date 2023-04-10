@@ -1,0 +1,10 @@
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayHasBackdrop]="true"
+  [cdkConnectedOverlayOpen]="isLoading"
+  [cdkConnectedOverlayPanelClass]="isFullScreen ? '' : 'content-only-overlay'"
+>
+    <div class="p-relative">
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </div>
+</ng-template>

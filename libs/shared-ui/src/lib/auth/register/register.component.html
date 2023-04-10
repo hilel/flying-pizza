@@ -1,0 +1,93 @@
+<div class="mat-typography row d-flex items-center justify-content-center">
+    <mat-card class="col-12 col-lg-10 px-0">
+      <mat-card-header>
+        <mat-card-title class="mx-4" i18n>Register</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="d-flex flex-column flex-md-row py-4">
+        <div class="form-container w-md-50 px-4 d-flex flex-column justify-content-center">
+          <form *ngIf="form" class="form" [formGroup]="form" (ngSubmit)="register()">
+            <mat-form-field appearance="outline">
+                <mat-label i18n>Email</mat-label>
+                <input matInput formControlName="email" type="text" />
+                <mat-error *ngIf="form.get('email')?.hasError('required')" i18n>
+                    Email is required
+                </mat-error>
+                <mat-error *ngIf="form.get('email')?.hasError('email')" i18n>
+                    Email isn't valid. Please enter a valid email.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline"  class="mt-3">
+                <mat-label i18n>First name</mat-label>
+                <input matInput formControlName="firstName" type="text" />
+                <mat-error *ngIf="form.get('firstName')?.hasError('required')" i18n>
+                    First name is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline"  class="mt-3">
+                <mat-label i18n>Last name</mat-label>
+                <input matInput formControlName="lastName" type="text" />
+                <mat-error *ngIf="form.get('lastName')?.hasError('required')" i18n>
+                    Last name is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline"  class="mt-3">
+                <mat-label i18n>Birth date</mat-label>
+                <input matInput formControlName="birthDate" [matDatepicker]="picker" [min]="minDate" [max]="maxDate">
+                <mat-error *ngIf="form.get('birthDate')?.hasError('required')" i18n>
+                    Birth date is required
+                </mat-error>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div class="flex w-100 mt-3">                
+                <mat-radio-group formControlName="gender" [color]="form.value.gender === 'male' ? 'accent' : 'primary'">
+                    <button mat-stroked-button color="primary" class="inline-button w-50 flex-spacer" type="button" (click)="form.get('gender')?.setValue('female')">
+                        <mat-icon>woman</mat-icon>
+                        <mat-radio-button value="female">Female</mat-radio-button>
+                    </button>
+                    <button mat-stroked-button color="accent" class="inline-button w-50 flex-spacer" type="button" (click)="form.get('gender')?.setValue('male')">
+                        <mat-icon>man</mat-icon>
+                        <mat-radio-button value="male">Male</mat-radio-button>
+                    </button>
+                </mat-radio-group>
+                <ng-container *ngIf="form.touched">
+                    <mat-error *ngIf="form.get('gender')?.hasError('required')" i18n>
+                        Gender is required
+                    </mat-error>
+                </ng-container>
+            </div>
+            <mat-form-field appearance="outline" class="mt-3">
+              <mat-label i18n>Password</mat-label>
+              <input matInput formControlName="password" type="password" />
+              <mat-error *ngIf="form.get('password')?.hasError('required')" i18n>
+                Password is required
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="mt-3">
+                <mat-label i18n>Confirm Password</mat-label>
+                <input matInput formControlName="confirmPassword" type="password" />
+                <mat-error *ngIf="form.get('confirmPassword')?.hasError('required')" i18n>
+                  Confirmation Password is required
+                </mat-error>
+            </mat-form-field>
+            <div class="mt-4 mb-4">
+              <re-captcha (resolved)="resolved($event)" (errored)="errored($event)" errorMode="handled" siteKey="6LcggRQlAAAAAO4R2r3tvvPjINTfPrTc8FXy97X4"></re-captcha>
+            </div>
+            <div class="form-footer mb-2">
+              <button mat-raised-button [disabled]="!captchaResolved || form.invalid" color="primary" type="submit" class="custom-theme rounded" i18n>
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+        <mat-divider vertical class="d-none d-md-block px-2"></mat-divider>
+        <mat-divider class="d-block d-md-none px-2"></mat-divider>
+        <div class="text-container text-truncate w-md-50 px-4 mt-2 d-flex flex-column">
+            <h3 class="mb-3" i18n>Have an account?</h3>
+            <a mat-stroked-button color="accent" routerLink="../login" i18n>Login here</a>
+            <fp-auth-contact-box></fp-auth-contact-box>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>

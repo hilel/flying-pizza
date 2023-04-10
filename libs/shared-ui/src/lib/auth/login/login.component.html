@@ -1,0 +1,53 @@
+<div class="mat-typography row d-flex items-center justify-content-center">
+    <mat-card class="col-12 col-lg-10 px-0">
+      <mat-card-header>
+        <mat-card-title class="mx-4" i18n>Sign In</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="d-flex flex-column flex-md-row py-4">
+        <div class="form-container w-md-50 px-4 d-flex flex-column justify-content-center">
+          <button mat-raised-button class="provider-button" (click)="loginWithGoogle()">
+            <img class="provider-logo" src="assets/google-g-logo.svg"/>
+            <ng-container i18n>Sign In with Google</ng-container>
+          </button>
+          <h4 class="mt-3 text-center" i18n>Or sign in with your email</h4>
+          <form *ngIf="form" class="form" [formGroup]="form" (ngSubmit)="login()">
+            <mat-form-field appearance="outline">
+              <mat-label i18n>Email</mat-label>
+              <input matInput formControlName="email" type="text" />
+              <mat-error *ngIf="email?.hasError('required')" i18n>
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="email?.hasError('email')" i18n>
+                Email isn't valid. Please enter a valid email.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="mt-4">
+              <mat-label i18n>Password</mat-label>
+              <input matInput formControlName="password" type="password" />
+              <mat-error *ngIf="password?.hasError('required')" i18n>
+                Password is required
+              </mat-error>
+            </mat-form-field>
+            <div class="mt-4 mb-4">
+              <re-captcha (resolved)="resolved($event)" (errored)="errored($event)" errorMode="handled" siteKey="6LcggRQlAAAAAO4R2r3tvvPjINTfPrTc8FXy97X4"></re-captcha>
+            </div>
+            <div class="form-footer">
+              <button mat-raised-button [disabled]="!captchaResolved || form.invalid" color="primary" type="submit" class="custom-theme rounded" i18n>
+                Sign In
+              </button>
+            </div>
+          </form>
+        </div>
+        <mat-divider vertical class="d-none d-md-block px-2"></mat-divider>
+        <mat-divider class="d-block d-md-none my-2"></mat-divider>
+        <div class="text-container text-truncate w-md-50 px-4 d-flex flex-column">
+          <h3 class="mb-2" i18n>Don't have an account yet?</h3>
+          <a mat-stroked-button color="accent" routerLink="../register" i18n>Sign Up for free</a>
+          <h3 class="mt-4 mb-2" i18n>Forgot password?</h3>
+          <a mat-stroked-button color="accent" routerLink="../register" class="mb-4" i18n>Reset Password here</a>
+          <a mat-stroked-button color="accent" routerLink="/privacy-policy" class="mt-4 mb-2" i18n>Privacy Policy</a>
+          <fp-auth-contact-box></fp-auth-contact-box>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>

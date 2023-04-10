@@ -1,0 +1,43 @@
+<mat-dialog-content>
+  <form [formGroup]="pizzaForm">
+    <mat-card class="shipping-card">
+      <mat-card-header [ngSwitch]="isEdit">
+        <mat-card-title *ngSwitchCase="true" i18n>Edit Pizza</mat-card-title>
+        <mat-card-title *ngSwitchDefault i18n>Create Pizza</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="w-100 mt-3">
+          <input matInput placeholder="Name the Pizza" formControlName="name">
+          <mat-error *ngIf="pizzaForm.controls['name'].hasError('required')">
+            Pizza name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+          <mat-form-field class="w-100 mt-3">
+            <textarea matInput rows="5" placeholder="Description and Ingredients" formControlName="description"></textarea>
+            <mat-error *ngIf="pizzaForm.controls['description'].hasError('required')">
+              Pizza Description is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mt-3">
+          <input matInput placeholder="Price" type="number" min="1" formControlName="price" step="0.1">
+          <span matTextPrefix>
+            <ng-container i18n>₪</ng-container>
+            &nbsp;
+          </span>
+          <span matTextSuffix>00.00</span>
+          <mat-error *ngIf="pizzaForm.controls['price'].hasError('required')">
+            Pizza price is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="p-4">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="!pizzaForm.valid || !pizzaForm.touched" (click)="onSubmit()">
+    <mat-icon>local_pizza</mat-icon>
+    <ng-container i18n>Create</ng-container>
+  </button>
+</mat-dialog-actions>

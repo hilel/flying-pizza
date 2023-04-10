@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="d-flex w-100">
+  <ng-content></ng-content>
+  <a mat-button href="">
+    <mat-icon>local_pizza</mat-icon>
+    <span class="mx-1">FLYING PIZZA</span>
+  </a>
+  <span class="flex-spacer"></span>
+  <button mat-icon-button [ngSwitch]="darkTheme" (click)="switchTheme()">
+    <mat-icon *ngSwitchCase="true">light_mode</mat-icon>
+    <mat-icon *ngSwitchDefault>dark_mode</mat-icon>
+    <mat-icon></mat-icon>
+  </button>
+  <a mat-icon-button i18n-href href="../en">
+    <mat-icon><img i18n-src src="./assets/en-us.png" alt="locale"></mat-icon>
+  </a>
+  <button *ngIf="loggedIn" mat-icon-button (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

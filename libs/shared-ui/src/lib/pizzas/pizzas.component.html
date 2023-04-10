@@ -1,0 +1,57 @@
+<mat-card class="mat-elevation-z8 mat-typography">
+  <mat-card-header>
+    <mat-card-title>
+      <h2 i18n>Pizzas can fly</h2>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="d-flex justify-content-end">
+    <button mat-button color="primary" (click)="addPizza()">
+      <mat-icon>add</mat-icon>
+      <ng-container i18n>Add pizza</ng-container>
+    </button>
+  </mat-card-content>
+  <fp-spinner [loading]="loading"></fp-spinner>
+  <div class="loading-spinner-container">
+    <table mat-table class="full-width-table" matSort aria-label="Elements">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let row">{{row.name}}</td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+        <td mat-cell *matCellDef="let row">{{row.description}}</td>
+      </ng-container>
+
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+        <td mat-cell *matCellDef="let row">{{row.price}}</td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="editPizza(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator #paginator
+        [length]="dataSource?.data?.length"
+        [pageIndex]="0"
+        [pageSize]="5"
+        [pageSizeOptions]="[5, 10, 20]"
+        aria-label="Select page">
+    </mat-paginator>
+  </div>
+</mat-card>

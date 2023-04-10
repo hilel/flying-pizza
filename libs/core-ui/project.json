@@ -2,7 +2,7 @@
   "name": "core-ui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/core-ui/src",
-  "prefix": "flying-pizza",
+  "prefix": "fp",
   "tags": [],
   "projectType": "library",
   "targets": {
