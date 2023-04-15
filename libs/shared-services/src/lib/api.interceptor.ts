@@ -15,12 +15,13 @@ export class ApiInterceptor implements HttpInterceptor {
         private readonly auth: Auth) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        let combinedUrlWithBaseUrl = new URL(req.url, this.apiBaseUrl).toString();
-        if (!this.isProd) {
-            // in development api requests base url is http://localhost:3333 of nestjs without /api/ prefix 
-            combinedUrlWithBaseUrl = combinedUrlWithBaseUrl.replace('/api/', '/'); 
-        }
-        let apiReq = req.clone({ url: combinedUrlWithBaseUrl });
+        // let url = req.url; // let url = new URL(req.url).toString();
+        // if (this.isProd) {
+        //     // in development api requests base url is http://localhost:3333 of nestjs without /api/ prefix 
+        //     url = url.replace('/api/', '/');
+        // }
+        // let apiReq = req.clone({ url: combinedUrlWithBaseUrl });
+        let apiReq = req.clone({ url: req.url });
     
         const idTokenObs: Observable<string | null> = this.auth.currentUser
             ? from(this.auth.currentUser.getIdToken())

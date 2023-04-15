@@ -1,8 +1,7 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { map, Observable } from 'rxjs';
+import { MatTable } from '@angular/material/table';
 
 import { PizzasDataSource } from './pizzas-datasource';
 import { EditPizzaDlgService } from './components/edit-pizza-dlg/edit-pizza-dlg.service';
@@ -19,16 +18,17 @@ export class PizzasComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<IPizzaItem>;
   dataSource: PizzasDataSource;
-  thingsAsMatTableDataSource$: Observable<MatTableDataSource<IPizzaItem>> =
-    this.pizza.getPizzasRef().pipe(
-      map((pizzas) => {
-        const dataSource = new MatTableDataSource<IPizzaItem>();
-        dataSource.data = pizzas;
-        this.dataSource.paginator = this.paginator;
-        this.table.dataSource = this.dataSource;
-        return dataSource;
-      })
-    );
+
+  // thingsAsMatTableDataSource$: Observable<MatTableDataSource<IPizzaItem>> =
+  //   this.pizza.getPizzasRef().pipe(
+  //     map((pizzas) => {
+  //       const dataSource = new MatTableDataSource<IPizzaItem>();
+  //       dataSource.data = pizzas;
+  //       this.dataSource.paginator = this.paginator;
+  //       this.table.dataSource = this.dataSource;
+  //       return dataSource;
+  //     })
+  //   );
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['name', 'description', 'price', 'actions'];
