@@ -10,9 +10,9 @@
     <mat-icon *ngSwitchDefault>dark_mode</mat-icon>
     <mat-icon></mat-icon>
   </button>
-  <a mat-icon-button i18n-href href="../en">
+  <button mat-icon-button (click)="switchLocale()">
     <mat-icon><img i18n-src src="./assets/en-us.png" alt="locale"></mat-icon>
-  </a>
+  </button>
   <button *ngIf="loggedIn" mat-icon-button (click)="logout()">
     <mat-icon>logout</mat-icon>
   </button>

@@ -28,9 +28,10 @@ export class HeaderComponent {
     })
   }
 
-  changeLocale() {
+  switchLocale() {
     const targetLocale = this.locale === 'en' ? 'he' : '';
-    window.location.href = `${window.location.origin}/${targetLocale}`; // ${window.location.pathname}
+    const href = window.location.href;
+    window.location.href = href.replace(`/${this.locale}/`, `/${targetLocale}/`);
   }
 
   switchTheme(forceTheme?: ThemeType) {
@@ -47,7 +48,7 @@ export class HeaderComponent {
       .catch((e) => console.log(e.message));
   }
 
-  // determines if the user has a set theme
+  /** determines if the user has a set theme */
   private _detectColorScheme(): ThemeType {
     // local storage is used to override OS theme settings
     const lsTheme = localStorage.getItem('theme');
