@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@flying-pizza/core-ui": ["libs/core-ui/src/index.ts"],
+      "@flying-pizza/firebase-api": ["libs/firebase-api/src/index.ts"],
       "@flying-pizza/model": ["libs/model/src/index.ts"],
       "@flying-pizza/shared-services": ["libs/shared-services/src/index.ts"],
       "@flying-pizza/shared-ui": ["libs/shared-ui/src/index.ts"]

@@ -1,0 +1,1 @@
+export const fbConfig = require('./flying-pizzaa-firebase-adminsdk-pbtvm-5579ecb825.json');
