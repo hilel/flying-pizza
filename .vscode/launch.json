@@ -32,7 +32,7 @@
             "restart": true,
             "sourceMaps": true,
             "outFiles": [
-                "${workspaceFolder}/dist/apps/pizza-api/**/*.js"
+                "${workspaceFolder}/dist/apps/backend/api/**/*.js"
             ],
             "skipFiles": [
                 "<node_internals>/**/*.js",
