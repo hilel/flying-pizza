@@ -240,14 +240,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="7670742279344252308" datatype="html">
-        <source>../en</source>
+        <source>../he</source>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/shared-ui/src/lib/modules/layout/components/header/header.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7605559084290787560" datatype="html">
-        <source>./assets/he.png</source>
+        <source>./assets/en-us.png</source>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/shared-ui/src/lib/modules/layout/components/header/header.component.html</context>
           <context context-type="linenumber">14</context>
@@ -268,7 +268,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="6960758678751804704" datatype="html">
-        <source>$</source>
+        <source>₪</source>
         <context-group purpose="location">
           <context context-type="sourcefile">libs/shared-ui/src/lib/pizzas/components/edit-pizza-dlg/edit-pizza-dlg.component.html</context>
           <context context-type="linenumber">24</context>
