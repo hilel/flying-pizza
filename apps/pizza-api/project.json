@@ -1,7 +1,7 @@
 {
   "name": "pizza-api",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/pizza-api/src",
+  "sourceRoot": "apps/pizza-api",
   "projectType": "application",
   "targets": {
     "build": {
@@ -12,9 +12,9 @@
         "target": "node",
         "compiler": "tsc",
         "outputPath": "dist/apps/pizza-api",
-        "main": "apps/pizza-api/src/main.ts",
+        "main": "apps/pizza-api/main.ts",
         "tsConfig": "apps/pizza-api/tsconfig.app.json",
-        "assets": ["apps/pizza-api/src/assets"],
+        "assets": ["apps/pizza-api/assets", "apps/pizza-api/package.json"],
         "isolatedConfig": true,
         "webpackConfig": "apps/pizza-api/webpack.config.js"
       },
@@ -58,7 +58,18 @@
           "codeCoverage": true
         }
       }
+    },
+    "serve-with-emulators": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx run pizza-api:serve:production",
+          "firebase emulators:start --only functions"
+        ],
+        "parallel": false
+      }
     }
+    
   },
   "tags": []
 }
