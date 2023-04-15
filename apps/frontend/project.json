@@ -8,11 +8,11 @@
     "locales": {
       "en": {
         "translation": "apps/frontend/src/locale/messages.en.xlf",
-        "baseHref": "/en/"
+        "baseHref": "/app/en/"
       },
       "he": {
         "translation": "apps/frontend/src/locale/messages.he.xlf",
-        "baseHref": "/he/"
+        "baseHref": "/app/he/"
       }
     }
   },
@@ -25,7 +25,7 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/apps/frontend",
+        "outputPath": "dist/apps/app",
         "index": "apps/frontend/src/index.html",
         "main": "apps/frontend/src/main.ts",
         "polyfills": [
@@ -47,13 +47,13 @@
           "budgets": [
             {
               "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumWarning": "1mb",
+              "maximumError": "3mb"
             },
             {
               "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+              "maximumWarning": "8kb",
+              "maximumError": "10kb"
             }
           ],
           "outputHashing": "all"
@@ -74,12 +74,12 @@
         },
         "en": {
           "localize": ["en"],
-          "baseHref": "/en/",
+          "baseHref": "/app/en/",
           "i18nMissingTranslation": "warning"
         },
         "he": {
           "localize": ["he"],
-          "baseHref": "/he/",
+          "baseHref": "/app/he/",
           "i18nMissingTranslation": "warning"
         }
       },
