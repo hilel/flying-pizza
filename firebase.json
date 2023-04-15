@@ -5,30 +5,65 @@
   },
   "functions": [
     {
-      "source": "functions",
-      "codebase": "default",
+      "source": "dist/apps/pizza-api",
       "ignore": [
         "node_modules",
         ".git",
         "firebase-debug.log",
         "firebase-debug.*.log"
-      ],
-      "predeploy": [
-        "npm --prefix \"$RESOURCE_DIR\" run build"
       ]
     }
   ],
   "hosting": {
-    "public": "dist",
+    "public": "dist/apps",
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "**/backend/**",
+      "**/pizza-api/**"
+    ],
+    "redirects": [
+      {
+        "source": "appDISABLE/",
+        "destination": "/app/en/index.html",
+        "type": 301
+      },
+      {
+        "source": "adminDISABLE/",
+        "destination": "/admin/en/index.html",
+        "type": 301
+      }
     ],
     "rewrites": [
       {
+        "source": "app/en/**",
+        "destination": "/app/en/index.html"
+      },
+      {
+        "source": "app/he/**",
+        "destination": "/app/he/index.html"
+      },
+      {
+        "source": "admin/en/**",
+        "destination": "/admin/en/index.html"
+      },
+      {
+        "source": "admin/he/**",
+        "destination": "/admin/he/index.html"
+      },
+      {
+        "source": "app/**",
+        "destination": "/app/en/index.html"
+      },
+      {
+        "source": "admin/**",
+        "destination": "/admin/en/index.html"
+      },
+      {
         "source": "**",
-        "destination": "/index.html"
+        "function": "api",
+        "region": "europe-west1"
       }
     ]
   },
